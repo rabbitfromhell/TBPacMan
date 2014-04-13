@@ -1,6 +1,6 @@
 title Turn-based Pac-man
 author Rabbit From Hell
-homepage rabbitfromhell.newgrounds.com/follow
+homepage rabbitfromhellhome.appspot.com
 
 key_repeat_interval 0.2
 require_player_movement
@@ -42,6 +42,38 @@ Yellow
 0000.
 .0000
 )
+
+PlayerClosedN
+Yellow
+.0.0.
+00.00
+00.00
+00000
+.000.
+
+PlayerClosedS
+Yellow
+.000.
+00000
+00.00
+00.00
+.0.0.
+
+PlayerClosedE
+Yellow
+.000.
+00000
+00...
+00000
+.000.
+
+PlayerClosedW
+Yellow
+.000.
+00000
+...00
+00000
+.000.
 
 PlayerE
 Yellow
@@ -102,7 +134,7 @@ White DarkGrey
 =======
 LEGEND
 =======
-Player = PlayerN or PlayerS or PlayerE or PlayerW
+Player = PlayerN or PlayerS or PlayerE or PlayerW or PlayerClosedN or PlayerClosedS or PlayerClosedE or PlayerClosedW
 Mover = Player or Ghost
 
 . = Background
@@ -148,7 +180,10 @@ RULES
 ======     
 
 [> Mover | Wall] -> [Mover | Wall]
-late [Player Pellet] -> [Player] Sfx0
+late [PlayerN Pellet] -> [PlayerClosedN] Sfx0
+late [PlayerS Pellet] -> [PlayerClosedS] Sfx0
+late [PlayerE Pellet] -> [PlayerClosedE] Sfx0
+late [PlayerW Pellet] -> [PlayerClosedW] Sfx0
 [right Player] -> [right PlayerE]
 [left Player] -> [left PlayerW]
 [up Player] -> [up PlayerN]
@@ -308,4 +343,4 @@ message Last level
 
 
 message Congratulations! You beat the game.
-
+message Thanks to Stephen Lavelle (www.increpare.com) for providing the pac-man eating animation.
